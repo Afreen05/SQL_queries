@@ -42,5 +42,8 @@ INSERT INTO serials VALUES (2,'kum_kum_bhagya','zeeTv',current_time(),1000);
 /*INSERT INTO serials VALUES (3,'tmkoc','sonySab',current_time(),999);/* value should be greater than or equal to 1000 */
 
 INSERT INTO serials VALUES (4,'ARKKH','starPlus',current_time(),1020);
+INSERT INTO serials VALUES (5,'kkkg','starbharat',current_time(),1000);
+SELECT DISTINCT(no_of_episodes) FROM serials;
 SELECT * FROM serials;
 desc serials;
+
