@@ -47,3 +47,54 @@ SELECT DISTINCT(no_of_episodes) FROM serials;
 SELECT * FROM serials;
 desc serials;
 
+CREATE TABLE generalstores(id int primary key,name varchar(50) unique,items varchar(50) unique,price int not null,location varchar(50) unique);
+insert into generalstores values(1,'poojags','rice',50,'rajajinagar');
+insert into generalstores values(1,'jaideepjs','badam',200,'jainagar');/*cant take same id*/
+
+Create table saloon(id int,name varchar(50) unique,style varchar(50), price int,location varchar(50) unique,primary key(id,price));
+
+Insert into saloon values(1,'beauty','level_cut',500,'hospet');
+Insert into saloon values(2,'pooja','straight_cut',2,'bangalore');/*values can be same*/
+Insert into saloon values(3,'pinky','feather_cut',600,'bellary');
+Insert into saloon values(2,'pooja','straight_cut',2,'bangalore');/*values can be same but not in other column*/
+
+create table bank(b_id int primary key,b_name varchar(50) unique,location varchar(50),manager varchar(50));
+INSERT INTO bank values(1,'idbi','rajaji_nagar','afreen');
+INSERT INTO bank values(102,'hdfc','jai_nagar','pooja');
+INSERT INTO bank values(103,'pnb','majestic','josheela');
+INSERT INTO bank values(104,'sbi','nagsandra','sahana');
+INSERT INTO bank values(105,'swissbank','kengeri','arun');
+
+
+select * from bank;
+
+create table customer(id int not null,c_name varchar(20) unique,b_id int,acc_type varchar(50),foreign key(b_id) references bank(b_id));
+
+insert into customer values(1,'shubham',102,'savings');
+insert into customer values(2,'anil',103,'current');
+insert into createcustomer values(3,'vinay',104,'savings');
+
+drop table bank;
+
+create table election(id int primary key auto_increment,name varchar(50),party_name varchar(40));
+insert into election (name,party_name) values('shubham','AAP');
+insert into election (name,party_name) values('lokesh','KRS');
+insert into election (name,party_name) values('om','BJP');
+insert into election (name,party_name) values('sunil','CONGRESS');
+insert into election (name,party_name) values('jaideep','BJP');
+insert into election (name,party_name) values('arun','JDS');
+insert into election (name,party_name) values('pooja','BJP');
+insert into election (name,party_name) values('shashi','CONGRESS');
+insert into election (name,party_name) values('     joshi','JDS');
+insert into election (name,party_name) values('afreen    ','AAP');
+
+
+select * from election;
+ALTER TABLE election ADD UNIQUE name_uni(name);
+
+SELECT LENGTH(name)from election;
+SELECT ltrim(name) from election;
+SELECT rtrim(name) from election;
+
+desc election;
+
